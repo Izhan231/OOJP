@@ -1,0 +1,109 @@
+import java.util.*;
+abstract class Shape
+{
+	int d1;
+	int d2;
+	int d3;
+
+Shape(int a, int b)
+{
+	d1=a;
+	d2=b;
+}
+Shape (int c)
+{
+	d3=c;
+};
+abstract double printarea();
+}
+
+class rectangle extends Shape
+{
+rectangle(int a, int b)
+{
+	super(a,b);
+}
+double printarea()
+{
+	System.out.println("Area of the Rectangle");
+	return d1*d2;
+}
+}
+class triangle extends Shape
+{
+	triangle(int x, int y)
+{
+	super(x,y);
+}
+double printarea()
+{
+	System.out.println("Area of Triangle");
+	return 0.5*d1*d2;
+}
+}
+class circle extends Shape
+{
+circle(int r)
+{
+	super(r);
+}
+double printarea()
+{
+	System.out.println("Area of the circle");
+	return 3.14*d3*d3;
+}
+}
+class areademo
+{
+	public static void main(String args[])
+	{
+	Scanner s=new Scanner(System.in);
+	int a,b,c,d,e;
+	int ch=0;
+	double area;
+	while(ch!=4)
+
+	{
+			System.out.println("1.Rectangle");
+			System.out.println("2.Triangle");	
+			System.out.println("3.Circle");
+			System.out.println("4.Exit");
+			System.out.println("Ener your choice");
+			ch=s.nextInt();
+	switch(ch)
+	{		
+		case 1:
+		System.out.println("Enter length and breadth of the rectangle");;
+		a=s.nextInt();
+		b=s.nextInt();
+		rectangle R=new rectangle(a,b);
+		area=R.printarea();
+		System.out.println(area);
+		break;
+
+
+		case 2:
+		System.out.println("Enter base and height of the triangle");;
+		c=s.nextInt();
+		d=s.nextInt();
+		triangle T=new triangle(c,d);
+		area=T.printarea();
+		System.out.println(area);
+		break;
+
+		case 3:
+		System.out.println("Enter radius of the circle");
+		e=s.nextInt();
+		circle C=new circle(e);
+		area=C.printarea();
+		System.out.println(area);
+		break;
+
+		case 4:
+		break;
+		default:System.out.println("Invalid option");
+		}
+		}
+
+}
+}
